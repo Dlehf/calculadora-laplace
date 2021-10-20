@@ -1,0 +1,350 @@
+<html>
+	<head>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="style.css">
+		<script src="laplace.js"></script>
+		<script>
+			var ecuacion = 0;
+		
+			function ecuacionSeleccionada(eq){
+				document.getElementById("resultado").innerHTML="";
+				document.getElementById("resultado2").innerHTML="";
+				document.getElementById("cajaCalculo").classList.add('d-none');
+				
+				if(eq=="1"){
+
+					document.getElementById("ecu1").classList.add('d-flex');
+					document.getElementById("ecu1").classList.remove('d-none');
+
+					document.getElementById("ecu2").classList.add('d-none');
+					document.getElementById("ecu3").classList.add('d-none');
+					document.getElementById("ecu4").classList.add('d-none');
+					document.getElementById("ecu4-2").classList.add('d-none');
+					document.getElementById("ecu5").classList.add('d-none');
+					document.getElementById("ecu6").classList.add('d-none');
+					document.getElementById("ecu6-2").classList.add('d-none');
+					document.getElementById("ecu7").classList.add('d-none');				
+
+					ecuacion = 1;
+					document.datos.n.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+				if(eq=="2"){
+					document.getElementById("ecu2").classList.add('d-flex');
+					document.getElementById("ecu2").classList.remove('d-none');
+
+					document.getElementById("ecu1").classList.add('d-none');
+					document.getElementById("ecu3").classList.add('d-none');
+					document.getElementById("ecu4").classList.add('d-none');
+					document.getElementById("ecu4-2").classList.add('d-none');
+					document.getElementById("ecu5").classList.add('d-none');
+					document.getElementById("ecu6").classList.add('d-none');
+					document.getElementById("ecu6-2").classList.add('d-none');
+					document.getElementById("ecu7").classList.add('d-none');
+
+					ecuacion = 2;
+					document.datos.a.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+				if(eq=="3"){
+
+					document.getElementById("ecu3").classList.add('d-flex');
+					document.getElementById("ecu3").classList.remove('d-none');
+
+					document.getElementById("ecu1").classList.add('d-none');
+					document.getElementById("ecu2").classList.add('d-none');
+					document.getElementById("ecu4").classList.add('d-none');
+					document.getElementById("ecu4-2").classList.add('d-none');
+					document.getElementById("ecu5").classList.add('d-none');
+					document.getElementById("ecu6").classList.add('d-none');
+					document.getElementById("ecu6-2").classList.add('d-none');
+					document.getElementById("ecu7").classList.add('d-none');
+
+					ecuacion = 3;
+					document.datos.w.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+				if(eq=="4"){
+
+					document.getElementById("ecu4").classList.add('d-flex');
+					document.getElementById("ecu4").classList.remove('d-none');
+					document.getElementById("ecu4-2").classList.add('d-flex');
+					document.getElementById("ecu4-2").classList.remove('d-none');
+					
+					document.getElementById("ecu1").classList.add('d-none');
+					document.getElementById("ecu2").classList.add('d-none');
+					document.getElementById("ecu3").classList.add('d-none');
+					document.getElementById("ecu5").classList.add('d-none');
+					document.getElementById("ecu6").classList.add('d-none');
+					document.getElementById("ecu6-2").classList.add('d-none');
+					document.getElementById("ecu7").classList.add('d-none');
+					
+
+					ecuacion = 4;
+					document.datos.m.disabled = false;
+					document.datos.o.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+				if(eq=="5"){
+
+					document.getElementById("ecu5").classList.add('d-flex');
+					document.getElementById("ecu5").classList.remove('d-none');
+
+					document.getElementById("ecu1").classList.add('d-none');
+					document.getElementById("ecu2").classList.add('d-none');
+					document.getElementById("ecu3").classList.add('d-none');
+					document.getElementById("ecu4").classList.add('d-none');
+					document.getElementById("ecu4-2").classList.add('d-none');
+					document.getElementById("ecu6").classList.add('d-none');
+					document.getElementById("ecu6-2").classList.add('d-none');
+					document.getElementById("ecu7").classList.add('d-none');
+
+					ecuacion = 5;
+					document.datos.y.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+				if(eq=="6"){
+
+					document.getElementById("ecu6").classList.add('d-flex');
+					document.getElementById("ecu6").classList.remove('d-none');
+					document.getElementById("ecu6-2").classList.add('d-flex');
+					document.getElementById("ecu6-2").classList.remove('d-none');
+
+					document.getElementById("ecu1").classList.add('d-none');
+					document.getElementById("ecu2").classList.add('d-none');
+					document.getElementById("ecu3").classList.add('d-none');
+					document.getElementById("ecu4").classList.add('d-none');
+					document.getElementById("ecu4-2").classList.add('d-none');
+					document.getElementById("ecu5").classList.add('d-none');
+					document.getElementById("ecu7").classList.add('d-none');
+
+					ecuacion = 6;
+					document.datos.p.disabled = false;
+					document.datos.q.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+				if(eq=="7"){
+
+					document.getElementById("ecu7").classList.add('d-flex');
+					document.getElementById("ecu7").classList.remove('d-none');
+
+					document.getElementById("ecu1").classList.add('d-none');
+					document.getElementById("ecu2").classList.add('d-none');
+					document.getElementById("ecu3").classList.add('d-none');
+					document.getElementById("ecu4").classList.add('d-none');
+					document.getElementById("ecu4-2").classList.add('d-none');
+					document.getElementById("ecu5").classList.add('d-none');
+					document.getElementById("ecu6").classList.add('d-none');
+					document.getElementById("ecu6-2").classList.add('d-none');
+
+					ecuacion = 7;
+					document.datos.z.disabled = false;
+					document.datos.calcular.disabled = false;
+				}
+
+			}
+			
+			function calcularLaplace(){
+
+				if(ecuacion == 1){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+
+					n = parseInt(document.datos.n.value);
+
+					nCuadrado = n*n;
+					//alert("1\n-----\ns-"+a);
+
+					document.getElementById("resultado").innerHTML = n+"<br>\n--------";
+					document.getElementById("resultado2").innerHTML = "S<sup>2</sup> + "+nCuadrado;
+				}
+				if(ecuacion == 2){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+					a = parseInt(document.datos.a.value);
+					aFactorial = factorial(a);
+					aMasUno = parseInt(a + 1);
+					//alert(nFactorial+"\n-----\ns^"+nMasUno);
+
+					document.getElementById("resultado").innerHTML = aFactorial+"<br>\n----\n";
+					document.getElementById("resultado2").innerHTML = "S<sup>"+aMasUno+"</sup>";
+					
+				}
+				if(ecuacion == 3){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+
+					w = parseInt(document.datos.w.value);
+					
+					/*alert(w+"\n-----\ns^2+"+wCuadrado);*/
+					document.getElementById("resultado").innerHTML = "1<br>\n-----\n<br>S-"+w;
+					
+				}
+				if(ecuacion == 4){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+
+					m = parseInt(document.datos.m.value);
+					o = parseInt(document.datos.o.value);
+					nFactorial = factorial(m);
+					document.getElementById("resultado").innerHTML = nFactorial+"<br>\n-----";
+					document.getElementById("resultado2").innerHTML = "(s-"+o+")<sup>"+(m+1)+"</sup>";
+				}
+				if(ecuacion == 5){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+
+					y = parseInt(document.datos.y.value);
+
+					yCuadrado = y*y;
+					//alert("1\n-----\ns-"+a);
+
+					document.getElementById("resultado").innerHTML = "s<br>\n--------";
+					document.getElementById("resultado2").innerHTML = "S<sup>2</sup> + "+yCuadrado;
+					
+				}
+				if(ecuacion == 6){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+
+					p = parseInt(document.datos.p.value);
+					q = parseInt(document.datos.q.value);
+					qCuadrado = q*q;
+					document.getElementById("resultado").innerHTML = "s - "+p+"<br>\n--------------";
+					document.getElementById("resultado2").innerHTML = "(s -"+p+")<sup>2</sup> + "+qCuadrado;
+				}
+				if(ecuacion == 7){
+					document.getElementById("cajaCalculo").classList.remove("d-none");
+
+					z = parseInt(document.datos.z.value);
+
+					zCuadrado = z*z;
+					dosPorZ = 2*z;
+					//alert("1\n-----\ns-"+a);
+
+					document.getElementById("resultado").innerHTML = dosPorZ+"s<br>\n-------------";
+					document.getElementById("resultado2").innerHTML = "(s<sup>2</sup> + "+zCuadrado+")<sup>2</sup>";
+					
+				}
+			}
+			
+			function factorial(n) { 
+				if (n == 0){ 
+					return 1; 
+				}
+				return n * factorial (n-1); 
+			}
+
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<H2 class="d-flex justify-content-center pb-5 t-titulo h1">¿Que funcion deseas emplear hoy ?</H2>
+			<form name="datos">
+				<div class="row d-flex justify-content-center">
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion1">
+							<img src="img/ecuacion1.jpg" onclick="javascript:ecuacionSeleccionada(1)">
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion2">
+							<img src="img/ecuacion2.jpg" onclick="javascript:ecuacionSeleccionada(2)">
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion3">
+							<img src="img/ecuacion3.jpg" onclick="javascript:ecuacionSeleccionada(3)">
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion4">
+							<img src="img/ecuacion4.jpg" onclick="javascript:ecuacionSeleccionada(4)">
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion5">
+							<img src="img/ecuacion5.jpg" onclick="javascript:ecuacionSeleccionada(5)">
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion6">
+							<img src="img/ecuacion6.jpg" onclick="javascript:ecuacionSeleccionada(6)">
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="radio" name="ecuaciones" value="ecuacion7">
+							<img src="img/ecuacion7.jpg" onclick="javascript:ecuacionSeleccionada(7)">
+						</label>
+					</div>
+				</div>
+				<div class="d-flex center pt-5 d-flex justify-content-center">
+					<div class="d-none" id="ecu1">
+						<div class="me-3 h2">Valor de n:</div>
+						<input class="form-control-ms" type="number" name="n">
+					</div>
+					<div class="d-none" id="ecu2">
+						<div class="me-3 h2">Valor de n:</div>  
+						<input class="" type="number" name="a">
+					</div>	
+					<div class="d-none" id="ecu3">
+						<div class="me-3 h2">Valor de n:</div>  
+						<input class="" type="number" name="w">
+					</div>	
+					<div>
+						<div class="d-none pb-2" id="ecu4">
+							<div class="me-3 h2">Valor de n:</div>  
+							<input class="" type="number" name="m">
+						</div>
+						<div class="d-none" id="ecu4-2">
+							<div class="me-3 h2">Valor de a:</div>  
+							<input class="" type="number" name="o">
+						</div>
+					</div>
+					<div class="d-none" id="ecu5">
+						<div class="me-3 h2">Valor de n:</div>  
+						<input class="" type="number" name="y">
+					</div>
+					<div>
+						<div class="d-none pb-2" id="ecu6">
+							<div class="me-3 h2">Valor de a:</div>  
+							<input class="" type="number" name="p">
+						</div>
+						<div class="d-none" id="ecu6-2">
+							<div class="me-3 h2">Valor de n:</div>  
+							<input class="" type="number" name="q">
+						</div>
+					</div>
+					<div class="d-none" id="ecu7">
+						<div class="me-3 h2">Valor de n:</div>  
+						<input class="" type="number" name="z">
+					</div>	
+				</div>
+				<div class="d-flex justify-content-center">
+					<div class="m-5">
+						<input class="btn btn-danger" type="button" name="calcular" value="Calcular" onclick="calcularLaplace();" disabled>
+					</div>
+				</div>
+				<div class="row d-flex justify-content-center">
+					<div class="col-2 caja-resultado  d-none" id="cajaCalculo">
+						<div class="text-center" id="resultado"></div>
+						<div class="text-center" id="resultado2"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>	
+	<footer>
+		<div class="d-flex justify-content-end me-5">
+			<cite> 
+				<div class="col">
+					<strong>Luis Fernando Velez Ramirez</strong>
+				</div>	
+				
+			</cite>
+		</div>	
+	</footer>
+</html>
